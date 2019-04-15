@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Filename, Position_Reference_Alternate, Depth Score" > output.csv
+for filename in "$1"/*JGI*.vcf; do
+  bcftools query -f '%POS %REF %ALT\n' "$filename" > temp_reads.txt
+  samtools depth "${filename%.*}.bam" > temp_depth.txt
+
+  echo "Sick Read!: "$(cat temp_reads.txt)"; Depth: "$(python depth.py)""
+
+  echo "$(basename "$filename"),\"$(cat temp_reads.txt)\",$(python depth.py)" >> output.csv
+done
+
+# echo "Filename, Position_Reference_Alternate" > output.csv
+# for filename in "$1"/*.vcf; do
+#   bcftools query -f '%POS %REF %ALT\n' "$filename" |
+#   sed "1s/^/$(basename "$filename"),/"
+# done > output.csv
