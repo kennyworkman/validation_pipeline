@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#pass directory containing *.bam, *.vcf files
+
 echo "Filename, Position_Reference_Alternate, Depth Score" > output.csv
 for filename in "$1"/*JGI*.vcf; do
   bcftools query -f '%POS %REF %ALT\n' "$filename" > temp_reads.txt
@@ -10,7 +12,17 @@ for filename in "$1"/*JGI*.vcf; do
   echo "$(basename "$filename"),\"$(cat temp_reads.txt)\",$(python depth.py)" >> output.csv
 done
 
-python visual.py
+if [ -f visual.xlsx ]; then
+  echo "Overwriting existing visual.xlsx file..."
+  echo "########################################"
+  echo "Colony screening information written to \"visual.xlsx\" "
+  rm visual.xlsx
+  python generate_visual.py
+else
+  python generate_visual.py
+  echo "########################################"
+  echo "Colony screening information written to \"visual.xlsx\" "
+fi
 
 # echo "Filename, Position_Reference_Alternate" > output.csv
 # for filename in "$1"/*.vcf; do
