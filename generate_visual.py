@@ -11,10 +11,10 @@ df.columns = df.columns.str.strip()
 
 #add color column
 conditions = [
-    (df['Position_Reference_Alternate'].isnull()) & (df['Depth Score'] == 100.0),
-    (df['Position_Reference_Alternate'].str.count('\n') >= 5) | (df['Depth Score'] < 90.0)]
+    (df['Position_Reference_Alternate'].isnull()) & (df['Depth Score'] == 100.0), #Conditions jor a 'green' colony
+    (df['Position_Reference_Alternate'].str.count('\n') >= 5) | (df['Depth Score'] < 90.0)] #Conditions for a 'red' colony
 choices = [3, 1]
-df['color'] = np.select(conditions, choices, default=2)
+df['color'] = np.select(conditions, choices, default=2) #All other colonies are 'yellow'
 
 #add construct column
 df['construct'] = df['Filename'].str.extract(r'([A-Z]+-[0-9]+)-col[0-9].*')

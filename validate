@@ -24,8 +24,5 @@ else
   echo "Colony screening information written to \"visual.xlsx\" "
 fi
 
-# echo "Filename, Position_Reference_Alternate" > output.csv
-# for filename in "$1"/*.vcf; do
-#   bcftools query -f '%POS %REF %ALT\n' "$filename" |
-#   sed "1s/^/$(basename "$filename"),/"
-# done > output.csv
+#for filename in "$1"/*JGI*.vcf; do
+
