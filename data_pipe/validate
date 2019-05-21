@@ -1,9 +1,6 @@
 #!/bin/bash
 #pass directory containing *.bam, *.vcf files
 
-# temporary change to see which version of python is being run
-echo $(which python)
-
 echo "Filename, Position_Reference_Alternate, Depth Score" > output.csv
 for filename in "$1"/*JGI*.vcf; do
   bcftools query -f '%POS %REF %ALT\n' "$filename" > temp_reads.txt
@@ -25,3 +22,5 @@ else
   echo "########################################"
   echo "Colony screening information written to \"visual.xlsx\" "
 fi
+
+rm *.txt
