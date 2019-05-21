@@ -1,0 +1,67 @@
+<html><head>
+<!-- HANDSON_FILES -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/handsontable/0.31.0/handsontable.full.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handsontable/0.31.0/handsontable.full.min.js"></script>
+<style>
+body{font-family:Helvetica,sans-serif;margin:2 0 0 0}.tab{margin-bottom:0 !important;text-align:center;list-style:none;padding:0 0 0 10px;line-height:24px;height:26px;overflow:hidden;font-size:12px;font-family:verdana;position:relative;margin:0}.tab li{margin-left:0 !important;float:left;height:24px;border:1px solid #aaa;background:#d1d1d1;background:linear-gradient(top, #ececec 50%, #d1d1d1);display:inline-block;position:relative;z-index:0;border-top-left-radius:6px;border-top-right-radius:6px;box-shadow:0 3px 3px rgba(0,0,0,0.4),inset 0 1px 0 #fff;text-shadow:0 1px #fff;margin:0 -5px;padding:0 20px}.tab li.active{background:#fff;color:#333;z-index:2}.tab li:before{left:-6px;border-width:0 1px 1px 0;box-shadow:2px 2px 0 #d1d1d1}.tab li:after{right:-6px;border-width:0 0 1px 1px;box-shadow:-2px 2px 0 #d1d1d1}.tab a{color:#555;text-decoration:none}.tab:before{position:absolute;content:" ";width:100%;bottom:0;left:0;border-bottom:1px solid #aaa;z-index:1}.tabcontent{margin-top:-1px}
+</style>
+</head><body>
+
+<ul class="tab" >
+<!-- BOOK_TAB -->
+<li id='pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5-sheet-li' class="pyexcel-9024e05076a94b6f9d548315d5c438aa-book-li">
+<a href="javascript:void(0)" onClick="openTab(event, 'pyexcel-9024e05076a94b6f9d548315d5c438aa-book', 'pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5-sheet')">Colonies</a>
+</li>
+
+</ul>
+<!-- BOOK_DIV -->
+<div id="pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5-sheet" class="tabcontent pyexcel-9024e05076a94b6f9d548315d5c438aa-book">
+  <div id="pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5"></div>
+</div>
+
+
+<!-- BOOK_SCRIPTS -->
+<script>
+var config = {"colHeaders": true, "rowHeaders": true, "preventOverflow": "hornizontal", "readOnly": true, "columnSorting": true};
+var tableHandles = [];
+function openTab(evt, bookId, tabId) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName(bookId);
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName(bookId+"-li");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabId).style.display = "block";
+    document.getElementById(tabId+"-li").className += " active";
+}
+function activateFirst(bookId, firstTab) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName(bookId);
+    for (i = 1; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    document.getElementById(firstTab+'-li').className += " active";
+}
+// BOOK_SHEET
+  var sheetHandle = {};
+  sheetHandle.element = document.querySelector("#pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5");
+
+  var mydata = [["", "construct", 0, 1, 2, 3], [0, "JGI-009847", 3, 3, 3, 3], [1, "JGI-009849", 2, 2, 2, 2], [2, "JGI-009851", 2, 2, 2, 2], [3, "JGI-009855", 2, 2, 2, 2], [4, "JGI-009857", 3, 3, 3, 3], [5, "JGI-009859", 3, 3, 2, 2], [6, "JGI-009861", 3, 3, 3, 3], [7, "JGI-009865", 1, 3, 1, 3], [8, "JGI-009873", 3, "", "", ""], [9, "JGI-009875", 3, 1, 1, ""], [10, "JGI-009877", 1, 3, 3, 2], [11, "JGI-009879", 1, 1, 1, 1], [12, "JGI-009881", 3, 1, 3, 3], [13, "JGI-009883", 2, "", "", ""], [14, "JGI-009885", 2, 3, 2, 3], [15, "JGI-009887", 3, 3, 3, 3], [16, "JGI-009889", 2, "", "", ""], [17, "JGI-009891", 3, 3, 3, 3], [18, "JGI-009893", 2, 2, "", ""], [19, "JGI-009895", 3, 3, 1, ""], [20, "JGI-009903", 3, 3, 2, 3], [21, "JGI-009905", 2, 2, "", ""], [22, "JGI-009907", 3, 3, 2, 3], [23, "JGI-009909", 2, "", "", ""], [24, "JGI-009911", 3, 3, "", ""], [25, "JGI-009913", 2, 2, 2, 2], [26, "JGI-009915", 2, 2, 2, 2], [27, "JGI-009917", 2, 2, 2, 2], [28, "JGI-009919", 3, 3, 3, ""], [29, "JGI-009921", 3, 3, 2, 2], [30, "JGI-009923", 2, 3, 3, 3], [31, "JGI-009925", 2, 2, 2, ""], [32, "JGI-009927", 3, 3, "", ""], [33, "JGI-009929", 3, 3, 3, ""], [34, "JGI-009931", 2, 2, 2, 2], [35, "JGI-009933", 2, 1, 2, ""], [36, "JGI-009935", 2, 2, 2, 2], [37, "JGI-009941", 3, 3, 2, 3], [38, "JGI-009945", 2, 2, "", ""], [39, "JGI-009947", 3, 2, 2, 2], [40, "JGI-009949", 2, 1, 2, 2], [41, "JGI-009953", 3, 3, 3, 1], [42, "JGI-009955", 2, 2, 2, 2], [43, "JGI-009957", 3, 3, 3, 3], [44, "JGI-009961", 2, "", "", ""], [45, "JGI-009963", 2, 2, 2, 1], [46, "JGI-009965", 2, 3, 1, ""], [47, "JGI-009967", 3, 3, 3, 1], [48, "JGI-009969", 3, 3, 2, 3], [49, "JGI-009973", 3, 3, 3, 3]];
+  var customStyle = {'notused': 'value'};
+  sheetHandle.config = Object.assign({}, config, customStyle);
+  sheetHandle.config.data = mydata;
+  sheetHandle.handsontable = new Handsontable(sheetHandle.element, sheetHandle.config);
+  sheetHandle.sheetId = "pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5";
+  if(tableHandles){
+    tableHandles.push(sheetHandle);
+  }
+
+activateFirst('pyexcel-9024e05076a94b6f9d548315d5c438aa-book', 'pyexcel-3b3d1ef54a1948679aeb42f8713a0fb5-sheet');
+					
+</script>
+
+</body></html>
+	

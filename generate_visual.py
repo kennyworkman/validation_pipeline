@@ -1,12 +1,11 @@
+import sys
 import numpy as np
 import pandas as pd
 import re
 import xlsxwriter
 
 df = pd.read_csv('output.csv', encoding="utf-8-sig")
-
 writer = pd.ExcelWriter('visual.xlsx', engine='xlsxwriter')
-
 df.columns = df.columns.str.strip()
 
 #add color column
