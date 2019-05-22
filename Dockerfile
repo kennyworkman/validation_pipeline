@@ -48,8 +48,11 @@ RUN cd /usr/local/bin/bcftools-${bcftools_version}/ && make
 RUN cd /usr/local/bin/bcftools-${bcftools_version}/ && make install
 
 WORKDIR /usr/local/
-COPY ./data_pipe ./pipeline
-COPY ./app ./pipeline
+COPY requirements.txt /tmp/
+RUN pip3 install -r /tmp/requirements.txt
+
+COPY ./data_pipe /usr/local/pipeline/
+COPY ./app /usr/local/pipeline/
 
 
 # Make container run when built
