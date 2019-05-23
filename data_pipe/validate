@@ -1,5 +1,5 @@
-#!/bin/bash
-#pass directory containing *.bam, *.vcf files
+#!/bin/bash/env bash
+# Pass a directory containing *.bam, *.vcf files as a single argument
 
 echo "Filename, Position_Reference_Alternate, Depth Score" > output.csv
 for filename in "$1"/*JGI*.vcf; do
