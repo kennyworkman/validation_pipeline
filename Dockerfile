@@ -51,8 +51,8 @@ WORKDIR /usr/local/
 COPY requirements.txt /tmp/
 RUN pip3 install -r /tmp/requirements.txt
 
-COPY ./data_pipe /usr/local/pipeline/
-COPY ./app /usr/local/pipeline/
+COPY ./pipe /usr/local/pipeline/pipe
+COPY ./app /usr/local/pipeline/app
 
 
 # Make container run when built
