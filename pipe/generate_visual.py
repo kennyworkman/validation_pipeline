@@ -11,8 +11,10 @@ df.columns = df.columns.str.strip()
 
 # Establish a color based on number of variants and depth score
 conditions = [
-    (df['Position Reference Alternate'].isnull()) & (df['Depth Score'] == 100.0), # Green
-    (df['Position Reference Alternate'].str.count('\n') >= 5) | (df['Depth Score'] < 90.0)] # Red
+                (df['Position Reference Alternate'].isnull()) & (df['Depth Score'] == 100.0), # Green
+                (df['Position Reference Alternate'].str.count('\n') >= 5) | (df['Depth Score'] < 90.0) # Red
+ 
+             ] 
 choices = [3, 1]
 df['color'] = np.select(conditions, choices, default=2) # All other colonies are 'yellow'
 

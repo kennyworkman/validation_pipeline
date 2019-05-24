@@ -1,7 +1,7 @@
 import sys
 
-# Adujust to desired depth value
-MIN_DEPTH = 30
+# Set threshold equal to first command line argument
+MIN_DEPTH = int(sys.argv[1])
 
 length, covered = 0, 0
 for line in sys.stdin:
