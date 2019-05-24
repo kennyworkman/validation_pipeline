@@ -8,11 +8,11 @@ After cloning this repository, a command line command needs to be issued to make
 
 Type the following commands into your terminal to run this script.
 
-```
+```bash
 git clone https://github.com/kennyworkman/visual_pipeline.git
 cd visual_pipeline
-chmod +x validate
-bash validate -d <insert path to directory here> -t <insert optional depth threshold here>
+chmod +x visualize
+bash visualize -d <insert path to directory here> -t <insert optional depth threshold here>
 ```
 
 The script should then run and automatically open the excel file with your results when it has finished. 
