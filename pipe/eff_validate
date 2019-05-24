@@ -1,6 +1,7 @@
 #!/bin/bash/env bash
 # Pass a directory containing *.bam, *.vcf files as a single argument
 
+
 # Function prints proper usage of script if there is misuse
 usage() {
     echo "Usage: $0 [-d <valid directory>] [-t <optional integer>]"    
@@ -86,3 +87,4 @@ else
     echo "Colony screening information written to visual.xlsx"
 
 fi
+
