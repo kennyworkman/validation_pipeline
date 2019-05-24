@@ -1,0 +1,51 @@
+#!/bin/bash/env bash
+# Pass a directory containing *.bam, *.vcf files as a single argument
+
+# Label the columns of the output.csv file
+echo "Filename, "Position Reference Alternate", Depth Score" > output.csv
+
+# Count total number of selected colonies in directory
+echo "Counting relevant files from directory..."
+total_colonies=$(ls -l "$1"/*JGI*.vcf | wc -l | tr -d '[:space:]')
+echo "$total_colonies colonies counted in submitted directory."
+echo
+
+# Initiate Counter
+counter=0
+
+echo "Collecting variants and depth metrics from each colony...."
+echo "This may take some time depending on strength of connection to the remote server."
+echo
+    
+# Parse information from each .bam/.vcf file pair. Store in variables and export to csv.
+for filename in "$1"/*JGI*.vcf; do
+    counter=$((counter + 1))
+    
+    depth_score="$(samtools depth "${filename%.*}.bam" | python depth.py)"
+    variant_array="$(bcftools query -f '%POS %REF %ALT\n' "$filename")"
+    column_name="$(basename "$filename")"
+
+    echo "$counter/$total_colonies" # echo current/total
+    echo "$variant_array"
+    echo ""$variant_array""
+    echo "$column_name",\""$variant_array"\","$depth_score" >> output.csv
+done
+
+echo 
+echo "Finished collecting colony information." 
+
+# Generate visually pleasant excel file with .csv file, overwrite if it exists
+if [ -f visual.xlsx ]; then
+
+    echo "Overwriting existing visual.xlsx file..."
+    rm visual.xlsx
+    python generate_visual.py
+    echo "Colony screening information written to visual.xlsx"
+
+else
+
+    python generate_visual.py
+    echo "Colony screening information written to visual.xlsx"
+
+fi
+

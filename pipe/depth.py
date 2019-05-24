@@ -1,16 +1,14 @@
 import sys
 
-"""Adjust to preferred value"""
+# Adujust to desired depth value
 MIN_DEPTH = 30
 
-text = open('temp_depth.txt', 'r')
-lines = text.readlines()
-length = 0
-covered = 0
-for line in lines:
+length, covered = 0, 0
+for line in sys.stdin:
     length += 1
     if int(line.split()[2]) >= MIN_DEPTH:
-        covered += 1
-text.close()
+        covered +=1
 
+# Print number of reads that satisfy threshold over the total
 print(covered/length*100)
+    
