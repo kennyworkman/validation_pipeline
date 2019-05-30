@@ -1,19 +1,26 @@
 #!/bin/bash/env bash
+
 # Pass a directory containing *.bam, *.vcf files as a single argument
 
 # Function prints proper usage of script if there is misuse
 usage() {
-    echo "Usage: $0 [-d <valid directory>] [-t <optional integer>]"    
+    echo "Usage: $0 [-d <valid directory>] [-n <optional filename keyword>] [-t <optional integer>]"    
     exit 1; # Exit with an error
 }
 
 # Parse through provided options from command line
-while getopts :d:t: o; do
+while getopts :d:n:t: o; do
     case "${o}" in
         d) 
             directory=${OPTARG}
             # Make sure -d option is a directory 
             [[ -d "$directory" ]] || usage 
+            ;;
+
+        n) 
+            keyword=${OPTARG}
+            # Make sure -n option is a valid word
+            [[ $keyword =~ [a-zA-Z]+ ]] || usage 
             ;;
 
         t) 
@@ -32,6 +39,11 @@ done
 # Make sure the -d (directory) option is provided
 if [[ -z "$directory" ]]; then
     usage
+fi
+
+# If no -n (keyword) provided set the default to "JGI"
+if [[ -z "$keyword" ]]; then
+    keyword=JGI
 fi
 
 # If no -t (threshhold) provided set the default to 30
@@ -55,13 +67,13 @@ echo
 counter=0
 
 echo "Collecting variants and depth metrics from each colony...."
-echo "Your depth threshold is $threshold. Stop the script (Ctr-C) if this is incorrect."
+echo "Your depth threshold is $threshold and your filename keyword is $keyword. Stop the script (Ctr-C) if either of these values are incorrect."
 echo
 echo "This may take some time depending on strength of connection to the remote server."
 echo
     
 # Parse information from each .bam/.vcf file pair. Store in variables and export to csv.
-for filename in "$directory"/*JGI*.vcf; do
+for filename in "$directory"/*$keyword*.vcf; do
     counter=$((counter + 1))
     
     depth_score="$(samtools depth "${filename%.*}.bam" | python depth.py $threshold)"
