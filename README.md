@@ -1,6 +1,6 @@
 # Colony Visualization Tool 
 
-This project was designed to automate the colony screening process after sequencing. Using this tool, users can expect to have minimal to no engagement with IGV or similar manual screening GUIs. 
+This project was designed to automate the colony screening process after sequencing. Using this tool, users can expect to have minimal engagement with IGV or similar manual screening GUIs. 
 
 After cloning this repository, a command line command needs to be issued to make the bash script executable. Calling this executable with the desired/correct parameters will populate and open an excel file with a visualization of colony sequence quality. 
 
