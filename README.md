@@ -6,7 +6,7 @@ After cloning this repository, a command line command needs to be issued to make
 
 ## QuickStart
 
-Type the following commands into your terminal to run this script.
+Type the following commands into your terminal to run this script. (If you haven't installed the proper dependencies see the section below.
 
 ```bash
 git clone https://github.com/kennyworkman/visual_pipeline.git
@@ -16,6 +16,22 @@ bash visualize -d <insert path to directory here> -n <insert optional filename k
 ```
 
 The script should then run and automatically open the excel file with your results when it has finished. 
+
+## Dependencies
+
+Install samtools and vcftools with the homebrew package manager. (Copy and paste into your command line)
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install samtools
+brew install vcftools
+```
+
+Install necessary python packages. (Copy and paste into your command line)  
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Option Flags and Default Values
 
