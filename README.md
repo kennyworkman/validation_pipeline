@@ -6,12 +6,20 @@ After cloning this repository, a command line command needs to be issued to make
 
 ## QuickStart
 
-Type the following commands into your terminal to run this script. (If you haven't installed the proper dependencies see the section below.
+Type the following commands into your terminal to run this script. 
 
 ```bash
 git clone https://github.com/kennyworkman/visual_pipeline.git
+
 cd visual_pipeline
 chmod +x visualize
+```
+
+If you haven't installed the proper dependencies see the section below.
+
+Now just call the script with your desired arguments.
+
+```bash
 bash visualize -d <insert path to directory here> -n <insert optional filename keyword here> -t <insert optional depth threshold here>
 ```
 
