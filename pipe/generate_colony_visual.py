@@ -18,10 +18,13 @@ conditions = [
 choices = [3, 1]
 df['color'] = np.select(conditions, choices, default=2) # All other colonies are 'yellow'
 
-# Groups colors by Filename
-groups = df.groupby(['Filename']).color.apply(list)
-colonies = pd.DataFrame({'Filename':groups.index, 'colony':groups.values})
-final = pd.concat([colonies['Filename'], pd.DataFrame(colonies['colony'].values.tolist())], axis=1)
+# Add construct column
+df['construct'] = df['Filename'].str.extract(r'([A-Z]+-[0-9]+)-col[0-9].*')
+
+# Groups colors by construct
+groups = df.groupby(['construct']).color.apply(list)
+colonies = pd.DataFrame({'construct':groups.index, 'colony':groups.values})
+final = pd.concat([colonies['construct'], pd.DataFrame(colonies['colony'].values.tolist())], axis=1)
 
 # Convert datafield into an excel file
 final.to_excel(writer, sheet_name='Colonies')
@@ -39,4 +42,3 @@ worksheet.conditional_format(1, 2, len(final), len(final.columns),
                                         ],
                               'icons_only': True})
 writer.save()
-
