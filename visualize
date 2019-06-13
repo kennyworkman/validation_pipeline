@@ -1,6 +1,6 @@
 #!/bin/bash/env bash
 
-# Pass a directory containing *.bam, *.vcf files as a single argument
+
 
 # Function prints proper usage of script if there is misuse
 usage() {
