@@ -59,7 +59,7 @@ echo "Filename, "Position Reference Alternate", Depth Score" > output.csv
 
 # Count total number of selected colonies in directory
 echo "Counting relevant files from directory..."
-total_colonies=$(ls -l "$directory"/*JGI*.vcf | wc -l | tr -d '[:space:]')
+total_colonies=$(ls -l "$directory"/*$keyword*.vcf | wc -l | tr -d '[:space:]')
 echo "$total_colonies colonies counted in submitted directory."
 echo
 
