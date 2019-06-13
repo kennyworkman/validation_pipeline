@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ```bash
 -d <insert path to directory here>
 ```
-This option is required. Copy and paste the full path to the desired directory after this flag.
+This option is required. Copy and paste the absolute path to the desired directory after this flag.
 
 ```bash
 -n <insert optional filename keyword here> 
