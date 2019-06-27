@@ -1,3 +1,5 @@
+# This module will generate an excel file from the ouptu.csv that is sorted by colonies according to a preset file format parsed by regex
+
 import sys
 import numpy as np
 import pandas as pd

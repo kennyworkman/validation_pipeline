@@ -1,3 +1,4 @@
+# This module will generate an excel file from the ouput.csv file that is not sorted by colonies.
 import sys
 import numpy as np
 import pandas as pd
@@ -12,7 +13,7 @@ df.columns = df.columns.str.strip()
 # Establish a color based on number of variants and depth score
 conditions = [
                 (df['Position Reference Alternate'].isnull()) & (df['Depth Score'] == 100.0), # Green
-                (df['Position Reference Alternate'].str.count('\n') >= 5) | (df['Depth Score'] < 90.0) # Red
+                (df['Position Reference Alternate'].astype(str).str.count('\n') >= 5) | (df['Depth Score'] < 90.0) # Red
  
              ] 
 choices = [3, 1]

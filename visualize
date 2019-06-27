@@ -1,6 +1,4 @@
-#!/bin/bash/env bash
-
-
+#!/usr/bin/env bash
 
 # Function prints proper usage of script if there is misuse
 usage() {
@@ -38,6 +36,7 @@ done
 
 # Make sure the -d (directory) option is provided
 if [[ -z "$directory" ]]; then
+    echo "Make sure you append the directory option withe '-d' tag!"
     usage
 fi
 
